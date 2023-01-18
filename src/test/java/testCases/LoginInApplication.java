@@ -9,30 +9,24 @@ import utilities.ReadTestSheet;
 
 public class LoginInApplication extends BrowserSetUp {
 	
+	public LoginPage loginApp; 
 	
 	@Test
 	public void executeLoginApplication() throws Exception
 	{
 		String testName=ReadTestSheet.getTestCase(ReadProperties.getData("sheet1"),1);
-		String runMode = ReadTestSheet.getExecution();
-		System.out.println("Test Case to be Executed :"+testName);
+		String runMode = ReadTestSheet.getExecution(1);
+		System.out.println("Test Case to be Executed :"+testName +" & RunMode is :"+runMode);
 		if(testName.equalsIgnoreCase("Login to Application") && runMode.equalsIgnoreCase("yes"))
 		{
 			
-			LoginPage loginApp = new LoginPage();
-			Thread.sleep(1200);
-			loginApp.EnterUsername();
-			Thread.sleep(1200);
-			loginApp.EnterPassword();
-			Thread.sleep(1200);
-			
-			loginApp.ClickSubmit();
-			Thread.sleep(1200);
+			loginApp = new LoginPage();
+			loginApp.LoginApp();
 			
 		}
 		else 
 		{
-			System.out.println("Please check TestCase Name or Execution in Excel");
+			System.out.println("Please check TestCase Name or RunMode in Excel");
 		}
 	}
 

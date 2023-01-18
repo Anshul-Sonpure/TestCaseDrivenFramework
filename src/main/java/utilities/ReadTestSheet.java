@@ -32,14 +32,14 @@ public class ReadTestSheet {
 		String testData = workbook.getSheet(sheetname).getRow(row).getCell(cell).toString();
 		return testData;
 	}
-	public static String getExecution() throws Exception
+	public static String getExecution(int row) throws Exception
 	{
 		//Path of the excel file
 		testSheet = ReadProperties.getData("TestSheet");
 	    //Creating a workbook
 		workbook = new XSSFWorkbook(testSheet);
 	   sheet = workbook.getSheetAt(0);
-		String runmode=sheet.getRow(1).getCell(3).toString();
+		String runmode=sheet.getRow(row).getCell(3).toString();
 		return runmode;
 	   
 	}

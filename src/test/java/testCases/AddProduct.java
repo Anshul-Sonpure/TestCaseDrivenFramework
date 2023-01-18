@@ -10,26 +10,20 @@ import utilities.ReadTestSheet;
 
 public class AddProduct extends BrowserSetUp {
 	
-	
+	public LoginPage loginApp;
+	public ProductPage prodpage;
 	
 	@Test
 	public void executeAddProduct() throws Exception
 	{
 		String testName=ReadTestSheet.getTestCase(ReadProperties.getData("sheet1"),2);
-		String runMode = ReadTestSheet.getExecution();
-		System.out.println("Test Case to be Executed :"+testName);
+		String runMode = ReadTestSheet.getExecution(2);
+		System.out.println("Test Case to be Executed :"+testName +" & RunMode is :"+runMode);
 		if(testName.equalsIgnoreCase("Add Product") && runMode.equalsIgnoreCase("yes"))
 		{
-			LoginPage loginApp = new LoginPage();
-			Thread.sleep(1200);
-			loginApp.EnterUsername();
-			Thread.sleep(1200);
-			loginApp.EnterPassword();
-			Thread.sleep(1200);
-			
-			loginApp.ClickSubmit();
-			Thread.sleep(1200);
-			ProductPage prodpage = new ProductPage();
+			loginApp = new LoginPage();
+			loginApp.LoginApp();
+			prodpage = new ProductPage();
 			prodpage.addToCart();
 			Thread.sleep(3200);
 			prodpage.Checkout();
@@ -44,7 +38,7 @@ public class AddProduct extends BrowserSetUp {
 		}
 		else 
 		{
-			System.out.println("Please check TestCase Name or Execution in Excel");
+			System.out.println("Please check TestCase Name or RunMode in Excel");
 		}
 	}
 

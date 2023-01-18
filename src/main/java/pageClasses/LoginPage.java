@@ -31,26 +31,17 @@ public class LoginPage extends BrowserSetUp{
 	private WebElement Login;
  	
 
-	public void EnterUsername() throws Exception
+	public void LoginApp() throws Exception 
 	{
 		String usrname= ReadTestSheet.getTestData(ReadProperties.getData("sheet2"),1,1);
 		username.sendKeys(usrname);
 		System.out.println("UserName: "+usrname);
-		
-	}
-	
-	public void EnterPassword() throws Exception
-	{
 		String passwd= ReadTestSheet.getTestData(ReadProperties.getData("sheet2"),1,2);
 		password.sendKeys(passwd);
 		System.out.println("Password: "+passwd);
+		Login.click();
 	}
 	
-	public void ClickSubmit()
-	{
-		Login.click();
-
-	}
 	
 	
 

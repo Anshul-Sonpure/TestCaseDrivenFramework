@@ -101,9 +101,8 @@ public class ProductPage extends BrowserSetUp {
 	
 	public  void Logout() throws InterruptedException
 	{
-		Thread.sleep(3200);
+		
 		Menu.click();
-		Thread.sleep(3200);
 		Logout.click();
 	}
 	
