@@ -10,13 +10,13 @@ public class ReadTestSheet {
 	public static XSSFSheet sheet;
 	
 	
-	public static String getTestCase(String sheetname) throws Exception {
+	public static String getTestCase(String sheetname,int row) throws Exception {
 	//Path of the excel file
 	testSheet = ReadProperties.getData("TestSheet");
 	//Creating a workbook
 	workbook = new XSSFWorkbook(testSheet);
 	sheet = workbook.getSheet(sheetname);
-	String TestCaseName=sheet.getRow(1).getCell(1).toString();
+	String TestCaseName=sheet.getRow(row).getCell(1).toString();
 	return TestCaseName;
 	
 	}

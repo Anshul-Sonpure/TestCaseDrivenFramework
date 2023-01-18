@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.ReadProperties;
@@ -25,6 +24,7 @@ public static WebDriver driver = null;
 		if(browser.equalsIgnoreCase("Chrome"))
 		{
 			WebDriverManager.chromedriver().setup();
+			
 			System.setProperty("webdriver.chrome.silentOutput", "true");
 			driver=new ChromeDriver();
 			

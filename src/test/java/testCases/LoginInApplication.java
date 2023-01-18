@@ -13,7 +13,7 @@ public class LoginInApplication extends BrowserSetUp {
 	@Test
 	public void executeLoginApplication() throws Exception
 	{
-		String testName=ReadTestSheet.getTestCase(ReadProperties.getData("sheet1"));
+		String testName=ReadTestSheet.getTestCase(ReadProperties.getData("sheet1"),1);
 		String runMode = ReadTestSheet.getExecution();
 		System.out.println("Test Case to be Executed :"+testName);
 		if(testName.equalsIgnoreCase("Login to Application") && runMode.equalsIgnoreCase("yes"))

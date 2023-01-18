@@ -1,7 +1,6 @@
 package pageClasses;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -25,7 +24,7 @@ public class ProductPage extends BrowserSetUp {
 	private WebElement price;
 	
 	
-	@FindBy(xpath="////button[@id='checkout']")
+	@FindBy(xpath="//button[@id='checkout']")
 	private WebElement checkout;
 	
 	
@@ -57,7 +56,6 @@ public class ProductPage extends BrowserSetUp {
 	@FindBy(xpath="//a[text()='Logout']")
 	private WebElement Logout;
 	
-	
 	public ProductPage()
 	{
 		PageFactory.initElements(driver,this);
@@ -72,7 +70,7 @@ public class ProductPage extends BrowserSetUp {
 	
 	public void Checkout()
 	{
-		Assert.assertEquals("22.99",price.getText());
+		Assert.assertEquals("$29.99",price.getText());
 		checkout.click();
 	}
 	
@@ -87,7 +85,7 @@ public class ProductPage extends BrowserSetUp {
 	
 	public void ValidateTotal()
 	{
-		Assert.assertEquals("32.39",TotalPrice.getText());
+		Assert.assertEquals("Total: $32.39",TotalPrice.getText());
 		finish.click();
 	}
 	
@@ -101,9 +99,11 @@ public class ProductPage extends BrowserSetUp {
 	}
 	
 	
-	public  void Logout()
+	public  void Logout() throws InterruptedException
 	{
+		Thread.sleep(3200);
 		Menu.click();
+		Thread.sleep(3200);
 		Logout.click();
 	}
 	
